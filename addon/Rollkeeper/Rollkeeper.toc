@@ -1,0 +1,8 @@
+## Interface: 120000
+## Title: Rollkeeper
+## Notes: Experimental practice match terms, manual roll guidance, and client-supplied receipts.
+## Author: Last Roll contributors
+## Version: 0.1.0
+## SavedVariables: RollkeeperDB
+Core.lua
+Rollkeeper.lua

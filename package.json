@@ -1,0 +1,46 @@
+{
+  "name": "last-roll",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0 <26"
+  },
+  "scripts": {
+    "predev": "npm run addon:package",
+    "dev": "concurrently -k -n api,web \"tsx watch server/index.ts\" \"vite --host 127.0.0.1\"",
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.server.json && npm run addon:package",
+    "start": "node dist-server/server/index.js",
+    "check": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "addon:package": "node scripts/package-addon.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "lucide-react": "^1.47.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/luaparse": "^0.2.13",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/supertest": "^7.2.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.5",
+    "fengari": "^0.1.5",
+    "fflate": "^0.8.3",
+    "luaparse": "^0.3.1",
+    "prettier": "^3.9.9",
+    "supertest": "^7.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,12 @@
+services:
+  last-roll:
+    build: .
+    ports:
+      - '127.0.0.1:3001:3001'
+    environment:
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN:-http://127.0.0.1:3001}
+    volumes:
+      - last-roll-data:/data
+    restart: unless-stopped
+volumes:
+  last-roll-data:
